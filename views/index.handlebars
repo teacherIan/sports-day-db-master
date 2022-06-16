@@ -1,0 +1,147 @@
+<style>
+  .background-image {
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100vw;
+    
+  }
+
+  .form-floating {
+    opacity: .7;
+  }
+  .list-group {
+    opacity: .7;
+  }
+
+  .ssis-image {
+    width: 100%;
+    opacity: .05;
+  }
+
+  .btn {
+    z-index: 1;
+  }
+</style>
+<h1 class="text-center mb-3">
+  Sports Day
+</h1>
+<h3>
+  Current Points:
+</h3>
+<ul class="list-group">
+  {{#each houses}}
+    <li class="list-group-item">
+      {{this.house}}
+      :
+      {{this.points}}
+    </li>
+  {{/each}}
+</ul>
+<h3>
+  Display Message:
+</h3>
+<ul class="list-group">
+  {{#each houses}}
+    <li class="list-group-item">
+      {{this.house}}
+      :
+      {{this.message}}
+    </li>
+  {{/each}}
+</ul>
+<form action="/add" method="POST" class="mb-4">
+  <h3 class="">
+    Update House:
+  </h3>
+  <div class="form-floating">
+    <select class="form-select" id="floatingSelect" name="house">
+      <option selected value="Sapphire">
+        Sapphire
+      </option>
+      <option value="Ruby">
+        Ruby
+      </option>
+      <option value="Amber">
+        Amber
+      </option>
+      <option value="Pearl">
+        Pearl
+      </option>
+    </select>
+    <label for="floatingSelect">
+      Select House:
+    </label>
+  </div>
+  <div class="form-floating mt-2">
+    <input
+      type="number"
+      class="form-control"
+      id="floatingInput"
+      placeholder="0"
+      name="amount"
+    />
+    <label for="floatingInput">
+      +/- Current Amount(Positive number to add points. Negative number to subtract points):
+    </label>
+  </div>
+  <div class="form-floating mt-2">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      name="message"
+    />
+    <label for="floatingInput">
+      Update display Message(Displayed at the end of the counter app):
+    </label>
+  </div>
+  <h3 class="">
+    Log Information:
+  </h3>
+  <div class="form-floating">
+    <select class="form-select" id="floatingSelect" name="schoolGroup">
+      <option selected value="Highschool">
+        Senior
+      </option>
+      <option value="Primary">
+        Primary
+      </option>
+      <option value="PrePrimary">
+        Pre-primary
+      </option>
+    </select>
+    <label for="floatingSelect">
+      Select Age Group:
+    </label>
+  </div>
+  <div class="form-floating mt-2">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      name="reason"
+    />
+    <label for="floatingInput">
+      Why were these points added/subtracted?
+    </label>
+  </div>
+  <div class="container">
+    <div class="row mt-2 col-13 gap-2">
+      <button type="submit" class="col btn btn-primary">
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+<form action="/logs" method="GET" class="mb-2">
+  <div class="container">
+    <div class="row mt-2 col-13 gap-2">
+      <button type="submit" class="col btn btn-secondary">
+        View Logs
+      </button>
+    </div>
+  </div>
+</form>

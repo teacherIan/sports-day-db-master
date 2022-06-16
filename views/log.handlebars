@@ -1,0 +1,93 @@
+<h1>
+  Logs
+</h1>
+<style>
+  .list-group {
+    
+    
+  }
+  .new-item {
+    background-color: rgba(0, 45, 90, 0.678);
+    margin: 5px;
+    box-shadow: 1px 1px 2px 1px black;
+    min-height: 150px;
+    border-radius: 5px;
+  }
+  .new-container {
+    
+    margin: 20px;
+  }
+  .new-container-houses {
+    position:absolute;
+    top:5px;
+    left:5px;
+    color:white;
+  }
+
+  .new-container-date {
+    position:absolute;
+    top:5px;
+    right:5px;
+    color:aliceblue;
+    
+  }
+
+  .new-container-points {
+        position:absolute;
+    bottom:5px;
+    left:5px;
+    color:aliceblue;
+  }
+
+    .new-container-age {
+    position:absolute;
+    bottom:5px;
+    right:5px;
+    color:aliceblue;
+  }
+  .container-flex-box {
+    width: 80%;
+    margin: 3% 10% 0 10%;
+    height: 100%;
+    color:aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+</style>
+<ul class="list-group">
+  {{#each history}}
+
+    <li class="list-group-item new-item">
+      <div class="container-flex-box">
+        {{this.reason}}
+      </div>
+      <div class="new-container">
+        <div class="new-container-houses">
+          <h5>
+            House:
+            {{this.house}}
+          </h5>
+        </div>
+        <div class="new-container-points">
+          <h5>
+            Points +/-   :
+            {{this.points}}
+          </h5>
+        </div>
+        <div class="new-container-date">
+          <h5>
+            {{this.lastUpdate}}
+          </h5>
+        </div>
+          <div class="new-container-age">
+          <h5>
+            {{this.ageGroup}}
+          </h5>
+
+
+      </div>
+    </li>
+  {{/each}}
+</ul>
